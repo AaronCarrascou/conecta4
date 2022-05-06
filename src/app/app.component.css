@@ -22,7 +22,7 @@ body {
     border-radius: 20%;
 }
 
-#item0{
+#vacio{
     height: 80px;
     width: 80px;
     margin: 5px;
@@ -32,7 +32,7 @@ body {
 
 }
 
-#item1{
+#jugador1{
     height: 70px;
     width: 70px;
     margin: 5px;
@@ -43,7 +43,7 @@ body {
 
 }
 
-#item2{
+#jugador2{
     height: 70px;
     width: 70px;
     margin: 5px;

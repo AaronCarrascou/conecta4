@@ -7,25 +7,27 @@
   <title>Conecta 4</title>
   <link rel="stylesheet" href="app.component.css">
 </head>
+
 <body>
-  <h1>cambio</h1>
   <h1>JUEGO CONECTA 4</h1>
   <h2 id="ganador"> {{ganador}}</h2>
+  <div *ngIf="gameOver==false">
+    <ng-container *ngFor="let item of opciones">
+      <button id="opcion"
+        type="button" (click)="colocarPieza(item)">
+        {{item}}
+      </button>
+    </ng-container>
+  </div>
 
-  <ng-container *ngFor="let item of opciones">
-    <button id="opcion"
-      type="button" (click)="colocarPieza(item)">
-      {{item}}
-    </button>
-  </ng-container>
 
   <div id="tablero">
 
     <ng-container *ngFor="let arrayinside of tablero">
-      <ng-container *ngFor="let item of arrayinside">
-        <div *ngIf="item == 0" id="item0"></div>
-        <div *ngIf="item == 1" id="item1"></div>
-        <div *ngIf="item == 2" id="item2"></div>
+      <ng-container *ngFor="let jugador of arrayinside">
+        <div *ngIf="jugador == 0" id="vacio"></div>
+        <div *ngIf="jugador == 1" id="jugador1"></div>
+        <div *ngIf="jugador == 2" id="jugador2"></div>
       </ng-container>
     </ng-container>
   </div>

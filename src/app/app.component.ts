@@ -64,21 +64,64 @@ export class AppComponent implements OnInit{
       for(let f=0; f<6; f++){
         for(let c=0; c < 4; c++){
           if(this.tablero[f][c]!=0){
-            if(this.tablero[f][c]== this.tablero[f][c+1] && this.tablero[f][c+1] == this.tablero[f][c+2] 
+            if(this.tablero[f][c]== this.tablero[f][c+1] 
+              && this.tablero[f][c+1] == this.tablero[f][c+2] 
               && this.tablero[f][c+2]== this.tablero[f][c+3]){
-                
-                if(this.jugadorActual==this.jugador1){
-                  this.ganador=this.jugador2;
-                }else{
-                  this.ganador=this.jugador1;
-                }
+                this.asignarGanador();
                 break;
-
             }
           }
         }
       }
       //vertical
+      for(let c=0; c<7; c++){
+        for(let f=0; f < 3; f++){
+          if(this.tablero[f][c]!=0){
+            if(this.tablero[f][c]== this.tablero[f+1][c] 
+              && this.tablero[f+1][c] == this.tablero[f+2][c] 
+              && this.tablero[f+2][c]== this.tablero[f+3][c]){
+                this.asignarGanador();
+                break;
+            }
+          }
+        }
+      }
+      //diagonal hacia abajo
+      for(let f=0; f<3; f++){
+        for(let c=0; c < 4; c++){
+          if(this.tablero[f][c]!=0){
+            if(this.tablero[f][c]==this.tablero[f+1][c+1]
+              && this.tablero[f+1][c+1]==this.tablero[f+2][c+2]
+              && this.tablero[f+2][c+2]==this.tablero[f+3][c+3]){
+                this.asignarGanador();
+                break;
+            }
+          }
+        }
+      }
+      //diagonal hacia arriba
+      for(let f=3; f<6; f++){
+        for(let c=0; c < 4; c++){
+          if(this.tablero[f][c]!=0){
+            if(this.tablero[f][c]==this.tablero[f-1][c+1]
+              && this.tablero[f-1][c+1]==this.tablero[f-2][c+2]
+              && this.tablero[f-2][c+2]==this.tablero[f-3][c+3]){
+                this.asignarGanador();
+                break;
+            }
+          }
+        }
+      }
+    }
+
+    asignarGanador():void{
+      if(this.jugadorActual==this.jugador1){
+        this.ganador=this.jugador2;
+        this.gameOver=true;
+      }else{
+        this.ganador=this.jugador1;
+        this.gameOver=true;
+      }
       
     }
 }
