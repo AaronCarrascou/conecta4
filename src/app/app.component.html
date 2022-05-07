@@ -13,8 +13,8 @@
 <div class="row">
   <div class="col-md-6" id="jugadores">
     <div>
-      <button type="button" (click)="nuevoJuego()">NuevoJuego</button>
-      <button type="button" (click)="comenzarJuego()">Comenzar</button>
+      <button type="button" (click)="nuevoJuego()" [disabled]="inicio == true">NuevoJuego</button>
+      <button type="button" (click)="comenzarJuego()" [disabled]="inicio== false">Comenzar</button>
     </div>
     <div id="players">
       <h3>Jugador/a 1:</h3>
@@ -40,10 +40,11 @@
 
   <div class="col-md-6">
 
-    <div *ngIf="gameOver==false">
+    <!-- <div *ngIf="gameOver==false"> -->
+    <div>
       <ng-container *ngFor="let item of opciones">
         <button id="opcion"
-          type="button" (click)="colocarPieza(item)">
+          type="button" (click)="colocarPieza(item)" [disabled]="inicio">
           {{item}}
         </button>
       </ng-container>

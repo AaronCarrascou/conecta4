@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
   jugadorActual:string = this.jugador1;
   gameOver:boolean = false;
   mensaje:string='';
+  inicio:boolean=true;
 
 
 
@@ -138,7 +139,9 @@ export class AppComponent implements OnInit{
         [0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0],
         ];
-        
+        this.gameOver=true
+        this.inicio=true;
+        this.mensaje=''
     }
 
     comenzarJuego(){
@@ -147,6 +150,7 @@ export class AppComponent implements OnInit{
         this.gameOver=true;
       }else{
         this.gameOver=false;
+        this.inicio=false;
       }
     }
 }
