@@ -23,8 +23,8 @@ body {
 }
 
 #vacio{
-    height: 80px;
-    width: 80px;
+    height: 78px;
+    width: 78px;
     margin: 5px;
 
     background-color: white;
@@ -33,8 +33,8 @@ body {
 }
 
 #jugador1{
-    height: 70px;
-    width: 70px;
+    height: 78px;
+    width: 78px;
     margin: 5px;
 
     background-color: red;
@@ -44,8 +44,8 @@ body {
 }
 
 #jugador2{
-    height: 70px;
-    width: 70px;
+    height: 78px;
+    width: 78px;
     margin: 5px;
 
     background-color: blue;
@@ -54,3 +54,34 @@ body {
     border: solid 5px darkblue;
 
 }
+#mJugador1{
+    height: 50px;
+    width: 50px;
+    /* margin: 5px; */
+
+    background-color: red;
+    border-radius: 50%;
+    border: solid 5px darkred;
+
+}
+
+#mJugador2{
+    height: 50px;
+    width: 50px;
+    /* margin: 5px; */
+
+    background-color: blue;
+    border-radius: 50%;
+
+    border: solid 5px darkblue;
+
+}
+
+#players{
+    text-align: left;
+}
+
+/* #jugadores{
+    border-radius: 10px;
+    border-style: solid black;
+} */

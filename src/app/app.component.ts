@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
 
   title = 'conecta4';
+  nombre1:string = '';
+  nombre2:string = '';
   jugador1:string = 'jugador 1';
   jugador2:string = 'jugador 2';
   ganador:string="sin ganador";
@@ -116,12 +118,27 @@ export class AppComponent implements OnInit{
 
     asignarGanador():void{
       if(this.jugadorActual==this.jugador1){
-        this.ganador=this.jugador2;
+        this.ganador=this.nombre2;
         this.gameOver=true;
       }else{
-        this.ganador=this.jugador1;
+        this.ganador=this.nombre1;
         this.gameOver=true;
       }
       
+    }
+    nuevoJuego(){
+      this.tablero = [
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        ];
+        this.gameOver=false;
+    }
+
+    guardaNombre(n1: string, n2: string){
+
     }
 }
