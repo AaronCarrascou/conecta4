@@ -14,7 +14,7 @@
   <div class="col-md-6" id="jugadores">
     <div>
       <button type="button" (click)="nuevoJuego()">NuevoJuego</button>
-      <button>Comenzar</button>
+      <button type="button" (click)="comenzarJuego()">Comenzar</button>
     </div>
     <div id="players">
       <h3>Jugador/a 1:</h3>
@@ -34,7 +34,7 @@
     </div>
     <h2 align="left">Mensajes</h2>
     <div>
-      <h3 id="ganador" *ngIf="gameOver"> {{ganador}} ganaste esta partida</h3>
+      <h3 id="ganador" *ngIf="gameOver"> {{mensaje}}</h3>
     </div>
   </div>
 

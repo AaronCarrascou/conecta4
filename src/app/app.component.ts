@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
 
   jugadorActual:string = this.jugador1;
   gameOver:boolean = false;
+  mensaje:string='';
 
 
 
@@ -119,9 +120,11 @@ export class AppComponent implements OnInit{
     asignarGanador():void{
       if(this.jugadorActual==this.jugador1){
         this.ganador=this.nombre2;
+        this.mensaje=`${this.nombre2} ganaste esta partida`;
         this.gameOver=true;
       }else{
         this.ganador=this.nombre1;
+        this.mensaje=`${this.nombre1} ganaste esta partida`;
         this.gameOver=true;
       }
       
@@ -135,10 +138,15 @@ export class AppComponent implements OnInit{
         [0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0],
         ];
-        this.gameOver=false;
+        
     }
 
-    guardaNombre(n1: string, n2: string){
-
+    comenzarJuego(){
+      if(this.nombre1=='' || this.nombre2==''){
+        this.mensaje='inserte nombre de los jugadores';
+        this.gameOver=true;
+      }else{
+        this.gameOver=false;
+      }
     }
 }
