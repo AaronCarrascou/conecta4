@@ -144,6 +144,7 @@ export class AppComponent implements OnInit{
         ];
         this.gameOver=true
         this.inicio=true;
+        this.mensaje=''
       }
       
       comenzarJuego(){

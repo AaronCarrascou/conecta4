@@ -20,14 +20,14 @@
       <h3>Jugador/a 1:</h3>
       <div class="row">
         <div class="col-md-4">
-          <input type="text" [(ngModel)]="nombre1">
+          <input type="text" [(ngModel)]="nombre1" [disabled]="inicio==false">
         </div>
         <div id="mJugador1"></div>
       </div>
       <h3>Jugador/a 2:</h3>
       <div class="row">
         <div class="col-md-4">
-          <input type="text" [(ngModel)]="nombre2">
+          <input type="text" [(ngModel)]="nombre2" [disabled]="inicio==false">
         </div>
         <div id="mJugador2"></div>
       </div>
