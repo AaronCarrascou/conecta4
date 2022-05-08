@@ -34,7 +34,7 @@
     </div>
     <h2 align="left">Mensajes</h2>
     <div>
-      <h3 id="ganador" *ngIf="gameOver"> {{mensaje}}</h3>
+      <h3 id="ganador"> {{mensaje}}</h3>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
     <div>
       <ng-container *ngFor="let item of opciones">
         <button id="opcion"
-          type="button" (click)="colocarPieza(item)" [disabled]="inicio">
+          type="button" (click)="colocarPieza(item)" [disabled]="gameOver">
           {{item}}
         </button>
       </ng-container>

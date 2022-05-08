@@ -38,9 +38,11 @@ export class AppComponent implements OnInit{
     ];
 
     colocarPieza(posicion: number):void {
-
+      
+      // this.mensaje=`turno de ${this.jugadorActual}`
       //Jugador 1
       if(this.jugadorActual==this.jugador1){
+        this.mensaje=`turno de ${this.nombre2}`
         for(let f=5; f>=0; f--){
           if(this.tablero[f][posicion-1]==0){
             this.tablero[f][posicion-1]=1;
@@ -51,6 +53,7 @@ export class AppComponent implements OnInit{
         }
       //Jugador 2
       }else{
+        this.mensaje=`turno de ${this.nombre1}`
           for(let f=5; f>=0; f--){
             if(this.tablero[f][posicion-1]==0){
               this.tablero[f][posicion-1]=2;
@@ -141,14 +144,18 @@ export class AppComponent implements OnInit{
         ];
         this.gameOver=true
         this.inicio=true;
-        this.mensaje=''
-    }
-
-    comenzarJuego(){
-      if(this.nombre1=='' || this.nombre2==''){
-        this.mensaje='inserte nombre de los jugadores';
-        this.gameOver=true;
-      }else{
+      }
+      
+      comenzarJuego(){
+        if(this.nombre1=='' || this.nombre2==''){
+          this.mensaje='inserte nombre de los jugadores';
+          this.gameOver=true;
+        }else{
+          if(this.jugadorActual==this.jugador1){
+            this.mensaje=`turno de ${this.nombre1}`
+          }else{
+            this.mensaje=`turno de ${this.nombre2}`
+          }
         this.gameOver=false;
         this.inicio=false;
       }
