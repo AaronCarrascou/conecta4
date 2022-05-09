@@ -1,0 +1,53 @@
+
+#boton{
+    width: 120px;
+    margin: 5px;
+    background-color: darkgray;
+    border: solid 3px grey;
+    border-radius: 20%; 
+}
+
+#botones{
+    text-align: right;  
+}
+
+#mJugador1{
+    height: 50px;
+    width: 50px;
+    margin-top: -10px;
+   
+
+    background-color: red;
+    border-radius: 50%;
+    border: solid 5px darkred;
+
+}
+
+#mJugador2{
+    height: 50px;
+    width: 50px;
+    margin-top: -10px;
+    
+
+    background-color: blue;
+    border-radius: 50%;
+
+    border: solid 5px darkblue;
+
+}
+
+#players{
+    text-align: left;
+}
+
+#mensaje{
+    width: 630px;
+    height: 310px;
+    border: 2px solid black;
+    
+}
+#mensajes{
+    
+    margin-top: 20px;
+
+}

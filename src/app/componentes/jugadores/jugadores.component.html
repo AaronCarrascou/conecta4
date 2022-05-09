@@ -1,0 +1,32 @@
+<h4>{{men}}</h4>
+<div id="botones">
+    <button id="boton" type="button" (click)="nuevoJuego()" [disabled]="inicio == true">NuevoJuego</button>
+    <button id="boton" type="button" (click)="comenzarJuego()" [disabled]="inicio== false">Comenzar</button>
+  </div>
+  <div id="players">
+    <h3>Jugador/a 1:</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <input type="text" [(ngModel)]="nombre1" [disabled]="inicio==false">
+      </div>
+      <div id="mJugador1"></div>
+    </div>
+    <h3>Jugador/a 2:</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <input type="text" [(ngModel)]="nombre2" [disabled]="inicio==false">
+      </div>
+      <div id="mJugador2"></div>
+    </div>
+</div>
+
+<div id="mensajes">
+  <h2 align="left">Mensajes</h2>
+
+
+  <div id="mensaje">
+    <div>
+      <h3> {{mensaje}}</h3>
+    </div>
+  </div>
+</div>
