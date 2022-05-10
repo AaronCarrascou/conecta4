@@ -1,5 +1,5 @@
 <div>
-    <h4>{{nombre1}} , {{nombre2}}</h4>
+    
     <ng-container *ngFor="let item of opciones">
       <button id="opcion"
         type="button" (click)="colocarPieza(item)" [disabled]="gameOver">
@@ -16,6 +16,8 @@
         <div *ngIf="jugador == 0" id="vacio"></div>
         <div *ngIf="jugador == 1" id="jugador1"></div>
         <div *ngIf="jugador == 2" id="jugador2"></div>
+        <div *ngIf="jugador == 3" id="ganadorRojo"></div>
+        <div *ngIf="jugador == 4" id="ganadorAzul"></div>
       </ng-container>
     </ng-container>
   </div>

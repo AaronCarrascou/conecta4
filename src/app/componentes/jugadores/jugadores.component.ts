@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Output,Input, EventEmitter  } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 
@@ -9,29 +9,26 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class JugadoresComponent implements OnInit {
 
-  constructor(public dataService: DataService){}
 
-  ngOnInit(): void {
-    this.dataService.nombre1Observable.subscribe(res => {
-      this.nombre1 = res;
-    });
+  ngOnInit(): void { 
   }
+
+  @Output() asignarNombre1: EventEmitter<string>= new EventEmitter<string>();
+  @Output() asignarNombre2: EventEmitter<string>= new EventEmitter<string>();
+  @Output() limpiarTablero: EventEmitter<number[][]>= new EventEmitter<number[][]>();
+  @Output() cambiaGameOver: EventEmitter<boolean>= new EventEmitter<boolean>();
+  @Output() cambiaMensaje: EventEmitter<string>= new EventEmitter<string>();
 
   nombre1 :string = '';
   nombre2 :string = '';
   jugador1:string = 'jugador 1';
   jugador2:string = 'jugador 2';
-  ganador:string="sin ganador";
-  men:string='';
 
   jugadorActual:string = this.jugador1;
-  gameOver:boolean = false;
-  mensaje:string='';
+  gameOver:boolean = true;
+  @Input() mensaje:string='';
   inicio:boolean=true;
 
-
-  
-  opciones = [1,2,3,4,5,6,7];
 
   tablero = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -44,17 +41,20 @@ export class JugadoresComponent implements OnInit {
 
 
     nuevoJuego(){
-      this.tablero = [
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        ];
         this.gameOver=true
         this.inicio=true;
         this.mensaje=''
+        this.tablero=[
+          [0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0],
+          ];
+        this.cambiaMensaje.emit(this.mensaje);
+        this.cambiaGameOver.emit(this.gameOver);
+        this.limpiarTablero.emit(this.tablero);
       }
       
       comenzarJuego(){
@@ -70,6 +70,11 @@ export class JugadoresComponent implements OnInit {
           }
         this.gameOver=false;
         this.inicio=false;
+
+        this.asignarNombre1.emit(this.nombre1);
+        this.asignarNombre2.emit(this.nombre2);
+        this.cambiaGameOver.emit(this.gameOver);
+        
       }
     }
 

@@ -8,9 +8,14 @@
   <link rel="stylesheet" href="app.component.css">
 </head>
 
+<header>
+  <div id="portada">
+    <app-header ></app-header>
+  </div>
+</header>
+
+
 <body>
-  <h1>JUEGO CONECTA 4</h1>
-  
 
 <div class="container">
 
@@ -20,7 +25,12 @@
     
     <div class="col-md-6" id="jugadores">
 
-      <app-jugadores></app-jugadores>
+      <app-jugadores (asignarNombre1)="nombre1 = $event"
+                      (asignarNombre2)="nombre2=$event"
+                      (limpiarTablero)="tablero=$event"
+                      (cambiaGameOver)="gameOver=$event"
+                      [mensaje]="mensaje">
+      </app-jugadores>
 
 
 
@@ -30,7 +40,12 @@
 
     <div class="col-md-6">
 
-      <app-tablero></app-tablero>
+      <app-tablero [nombre1]="nombre1" 
+                  [nombre2]="nombre2"
+                  [tablero]="tablero"
+                  [gameOver]="gameOver"
+                  (cambiaMensaje)="mensaje=$event">
+      </app-tablero>
 
     </div>
 
@@ -38,4 +53,9 @@
 
 </div>
 </body>
+<footer>
+  <div>
+    <h5 id="pie"> Aaron Carrasco/ Matías Escarate - Desarrollo Frontend con Angular (2022)</h5>
+  </div>
+</footer>
 </html>

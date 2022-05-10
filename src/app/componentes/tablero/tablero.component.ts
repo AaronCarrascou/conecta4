@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -8,18 +8,19 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class TableroComponent implements OnInit {
 
-  constructor(public dataService:DataService) { }
 
-  nombre1:string = '';
-  nombre2:string = '';
+  @Output() cambiaMensaje: EventEmitter<string>= new EventEmitter<string>();
+  
+  @Input() nombre1:string = '';
+  @Input() nombre2:string = '';
   jugador1:string = 'jugador 1';
   jugador2:string = 'jugador 2';
   ganador:string="sin ganador";
 
   jugadorActual:string = this.jugador1;
-  gameOver:boolean = false;
+  @Input() gameOver:boolean = true;
   mensaje:string='';
-  inicio:boolean=true;
+  
 
   ngOnInit(): void {
     
@@ -27,7 +28,7 @@ export class TableroComponent implements OnInit {
 
   opciones = [1,2,3,4,5,6,7];
 
-  tablero = [
+  @Input() tablero = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
@@ -36,9 +37,22 @@ export class TableroComponent implements OnInit {
     [0, 0, 0, 0, 0, 0, 0],
     ];
 
+    asignarGanador():void{
+      if(this.jugadorActual==this.jugador1){
+        this.ganador=this.nombre2;
+        this.mensaje=`${this.nombre2} ganaste esta partida`;
+        this.gameOver=true;
+      }else{
+        this.ganador=this.nombre1;
+        this.mensaje=`${this.nombre1} ganaste esta partida`;
+        this.gameOver=true;
+      }
+      this.cambiaMensaje.emit(this.mensaje);
+      
+    }
+
     colocarPieza(posicion: number):void {
       
-      // this.mensaje=`turno de ${this.jugadorActual}`
       //Jugador 1
       if(this.jugadorActual==this.jugador1){
         this.mensaje=`turno de ${this.nombre2}`
@@ -47,6 +61,7 @@ export class TableroComponent implements OnInit {
             this.tablero[f][posicion-1]=1;
             this.jugadorActual=this.jugador2;
             this.buscarGanador();
+            this.cambiaMensaje.emit(this.mensaje);
             break;
           }
         }
@@ -57,6 +72,7 @@ export class TableroComponent implements OnInit {
             if(this.tablero[f][posicion-1]==0){
               this.tablero[f][posicion-1]=2;
               this.jugadorActual=this.jugador1;
+              this.cambiaMensaje.emit(this.mensaje);
               this.buscarGanador();
               break;
             }
@@ -73,6 +89,20 @@ export class TableroComponent implements OnInit {
             if(this.tablero[f][c]== this.tablero[f][c+1] 
               && this.tablero[f][c+1] == this.tablero[f][c+2] 
               && this.tablero[f][c+2]== this.tablero[f][c+3]){
+                
+                if(this.jugadorActual==this.jugador1){
+                  this.tablero[f][c]=4;
+                  this.tablero[f][c+1]=4;
+                  this.tablero[f][c+2]=4;
+                  this.tablero[f][c+3]=4;
+                  
+                }else{
+                  this.tablero[f][c]=3;
+                  this.tablero[f][c+1]=3;
+                  this.tablero[f][c+2]=3;
+                  this.tablero[f][c+3]=3;
+                }
+
                 this.asignarGanador();
                 break;
             }
@@ -86,6 +116,20 @@ export class TableroComponent implements OnInit {
             if(this.tablero[f][c]== this.tablero[f+1][c] 
               && this.tablero[f+1][c] == this.tablero[f+2][c] 
               && this.tablero[f+2][c]== this.tablero[f+3][c]){
+
+                if(this.jugadorActual==this.jugador1){
+                  this.tablero[f][c]=4;
+                  this.tablero[f+1][c]=4;
+                  this.tablero[f+2][c]=4;
+                  this.tablero[f+3][c]=4;
+                  
+                }else{
+                  this.tablero[f][c]=3;
+                  this.tablero[f+1][c]=3;
+                  this.tablero[f+2][c]=3;
+                  this.tablero[f+3][c]=3;
+                }
+
                 this.asignarGanador();
                 break;
             }
@@ -99,6 +143,20 @@ export class TableroComponent implements OnInit {
             if(this.tablero[f][c]==this.tablero[f+1][c+1]
               && this.tablero[f+1][c+1]==this.tablero[f+2][c+2]
               && this.tablero[f+2][c+2]==this.tablero[f+3][c+3]){
+
+                if(this.jugadorActual==this.jugador1){
+                  this.tablero[f][c]=4;
+                  this.tablero[f+1][c+1]=4;
+                  this.tablero[f+2][c+2]=4;
+                  this.tablero[f+3][c+3]=4;
+                  
+                }else{
+                  this.tablero[f][c]=3;
+                  this.tablero[f+1][c+1]=3;
+                  this.tablero[f+2][c+2]=3;
+                  this.tablero[f+3][c+3]=3;
+                }
+
                 this.asignarGanador();
                 break;
             }
@@ -112,6 +170,20 @@ export class TableroComponent implements OnInit {
             if(this.tablero[f][c]==this.tablero[f-1][c+1]
               && this.tablero[f-1][c+1]==this.tablero[f-2][c+2]
               && this.tablero[f-2][c+2]==this.tablero[f-3][c+3]){
+
+                if(this.jugadorActual==this.jugador1){
+                  this.tablero[f][c]=4;
+                  this.tablero[f-1][c+1]=4;
+                  this.tablero[f-2][c+2]=4;
+                  this.tablero[f-3][c+3]=4;
+                  
+                }else{
+                  this.tablero[f][c]=3;
+                  this.tablero[f-1][c+1]=3;
+                  this.tablero[f-2][c+2]=3;
+                  this.tablero[f-3][c+3]=3;
+                }
+
                 this.asignarGanador();
                 break;
             }
@@ -120,17 +192,6 @@ export class TableroComponent implements OnInit {
       }
     }
 
-    asignarGanador():void{
-      if(this.jugadorActual==this.jugador1){
-        this.ganador=this.nombre2;
-        this.mensaje=`${this.nombre2} ganaste esta partida`;
-        this.gameOver=true;
-      }else{
-        this.ganador=this.nombre1;
-        this.mensaje=`${this.nombre1} ganaste esta partida`;
-        this.gameOver=true;
-      }
-      
-    }
+
 
 }
