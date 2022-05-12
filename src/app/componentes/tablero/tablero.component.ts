@@ -16,7 +16,7 @@ export class TableroComponent implements OnInit {
   @Input() nombre2:string = '';
   jugador1:string = 'jugador 1';
   jugador2:string = 'jugador 2';
-  ganador:string='';
+  @Input() ganador:string='';
 
   jugadorActual:string = this.jugador1;
   @Input() gameOver:boolean = true;
@@ -62,8 +62,9 @@ export class TableroComponent implements OnInit {
           if(this.tablero[f][posicion-1]==0){
             this.tablero[f][posicion-1]=1;
             this.jugadorActual=this.jugador2;
-            this.buscarGanador();
             this.cambiaMensaje.emit(this.mensaje);
+            this.buscarGanador();
+            
             break;
           }
         }

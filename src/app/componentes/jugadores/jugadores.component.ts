@@ -20,6 +20,7 @@ export class JugadoresComponent implements OnInit {
   @Output() cambiaMensaje: EventEmitter<string>= new EventEmitter<string>();
   @Output() muestraGanador: EventEmitter<string>= new EventEmitter<string>();
 
+
   nombre1 :string = '';
   nombre2 :string = '';
   jugador1:string = 'jugador 1';
