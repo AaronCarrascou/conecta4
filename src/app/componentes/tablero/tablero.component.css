@@ -1,6 +1,6 @@
 
 #tablero{
-    width: 100%;
+    width: 630px;
     height: 540px;
     background-color: darkgray;
 
@@ -11,7 +11,7 @@
 }
 
 #opcion{
-    width: 12%;
+    width: 78px;
     margin: 5px;
     background-color: darkgray;
     border: solid 3px grey;
@@ -19,8 +19,8 @@
 }
 
 #vacio{
-    height: 12%;
-    width: 12%;
+    height: 78px;
+    width: 78px;
     margin: 5px;
 
     background-color: white;
@@ -29,8 +29,8 @@
 }
 
 #jugador1{
-    height: 12%;
-    width: 12%;
+    height: 78px;
+    width: 78px;
     margin: 5px;
 
     background-color: red;
@@ -40,8 +40,8 @@
 }
 
 #jugador2{
-    height: 12%;
-    width: 12%;
+    height: 78px;
+    width: 78px;
     margin: 5px;
 
     background-color: blue;
@@ -52,8 +52,8 @@
 }
 
 #ganadorRojo{
-    height: 12%;
-    width: 12%;
+    height: 78px;
+    width: 78px;
     margin: 5px;
 
     background-color: red;
@@ -62,11 +62,15 @@
 }
 
 #ganadorAzul{
-    height: 12%;
-    width: 12%;
+    height: 78px;
+    width: 78px;
     margin: 5px;
 
     background-color: blue;
     border-radius: 50%;
     border: solid 5px gold;
+}
+
+#botones{
+    width: 630px;
 }

@@ -14,6 +14,8 @@ export class AppComponent implements OnInit{
 
   gameOver:boolean = true;
   mensaje:string='';
+  jugadorActual:string='';
+  ganador='';
   
 
   tablero = [

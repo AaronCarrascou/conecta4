@@ -28,7 +28,9 @@
 
   <div class="card">
     <div>
-      <h3> {{mensaje}}</h3>
+      <h3 *ngIf="ganador==''"> {{mensaje}}</h3>
+      <h3 *ngIf="gameOver==false && ganador==jugador2" id="mensajeJ1"> {{mensaje}}</h3>
+      <h3 *ngIf="gameOver==false && ganador==jugador1" id="mensajeJ2"> {{mensaje}}</h3>
     </div>
   </div>
 </div>

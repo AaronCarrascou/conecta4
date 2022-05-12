@@ -18,12 +18,14 @@ export class JugadoresComponent implements OnInit {
   @Output() limpiarTablero: EventEmitter<number[][]>= new EventEmitter<number[][]>();
   @Output() cambiaGameOver: EventEmitter<boolean>= new EventEmitter<boolean>();
   @Output() cambiaMensaje: EventEmitter<string>= new EventEmitter<string>();
+  @Output() muestraGanador: EventEmitter<string>= new EventEmitter<string>();
 
   nombre1 :string = '';
   nombre2 :string = '';
   jugador1:string = 'jugador 1';
   jugador2:string = 'jugador 2';
 
+  @Input() ganador:string='';
   jugadorActual:string = this.jugador1;
   gameOver:boolean = true;
   @Input() mensaje:string='';
@@ -43,7 +45,8 @@ export class JugadoresComponent implements OnInit {
     nuevoJuego(){
         this.gameOver=true
         this.inicio=true;
-        this.mensaje=''
+        this.mensaje='';
+        this.ganador=''
         this.tablero=[
           [0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0],
@@ -52,6 +55,7 @@ export class JugadoresComponent implements OnInit {
           [0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0],
           ];
+        this.muestraGanador.emit(this.ganador)
         this.cambiaMensaje.emit(this.mensaje);
         this.cambiaGameOver.emit(this.gameOver);
         this.limpiarTablero.emit(this.tablero);
