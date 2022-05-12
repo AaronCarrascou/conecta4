@@ -11,10 +11,11 @@ export class AppComponent implements OnInit{
   title = 'conecta4';
   nombre1:string = '';
   nombre2:string = '';
-
+  jugador1:string = 'jugador 1';
+  jugador2:string = 'jugador 2';
   gameOver:boolean = true;
   mensaje:string='';
-  jugadorActual:string='';
+  jugadorActual:string=this.jugador1;
   ganador='';
   
 

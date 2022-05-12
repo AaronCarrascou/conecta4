@@ -27,7 +27,7 @@ export class JugadoresComponent implements OnInit {
   jugador2:string = 'jugador 2';
 
   @Input() ganador:string='';
-  jugadorActual:string = this.jugador1;
+  @Input() jugadorActual:string = this.jugador1;
   gameOver:boolean = true;
   @Input() mensaje:string='';
   inicio:boolean=true;

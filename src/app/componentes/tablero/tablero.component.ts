@@ -11,6 +11,7 @@ export class TableroComponent implements OnInit {
 
   @Output() cambiaMensaje: EventEmitter<string>= new EventEmitter<string>();
   @Output() muestraGanador: EventEmitter<string>= new EventEmitter<string>();
+  @Output() muestrajugador: EventEmitter<string>= new EventEmitter<string>();
   
   @Input() nombre1:string = '';
   @Input() nombre2:string = '';
@@ -48,6 +49,7 @@ export class TableroComponent implements OnInit {
         this.mensaje=`${this.nombre1} ganaste esta partida`;
         this.gameOver=true;
       }
+      this.muestrajugador.emit(this.jugadorActual);
       this.muestraGanador.emit(this.jugadorActual);
       this.cambiaMensaje.emit(this.mensaje);
       

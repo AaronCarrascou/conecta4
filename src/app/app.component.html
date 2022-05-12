@@ -30,6 +30,7 @@
                       (limpiarTablero)="tablero=$event"
                       (cambiaGameOver)="gameOver=$event"
                       (muestraGanador)="ganador=$event"
+                      [jugadorActual]="jugadorActual"
                       [ganador]="ganador"
                       [mensaje]="mensaje">
       </app-jugadores>
@@ -47,6 +48,7 @@
                   [tablero]="tablero"
                   [gameOver]="gameOver"
                   [ganador]="ganador"
+                  (muestrajugador)="jugadorActual=$event"
                   (cambiaMensaje)="mensaje=$event"
                   (muestraGanador)="ganador=$event">
       </app-tablero>
